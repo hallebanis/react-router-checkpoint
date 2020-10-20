@@ -37,19 +37,9 @@ function App() {
       posterUrl:"",
       rating:0
     }
-  )
+  );
   
-  const handleAddMovie=(o)=>{
-    setMovie([
-      ...movie,
-      {
-        title: o.title,
-        description: o.description,
-        posterUrl:o.posterUrl,
-        rating:o.rating
-      }
-    ]);
-  }
+  
   //Filter States
   const handleFilterTitleChange=(titleFilter)=>setMovieTitle(titleFilter)
   const handleFilterRatingChange=(ratingFilter)=>setMovieRating(ratingFilter)
@@ -64,7 +54,7 @@ function App() {
         <MovieList list={movie.filter(el => (el.title.toUpperCase().includes(movieTitle.toUpperCase().trim())) && el.rating>=movieRating)} />  
       </main>
       <footer>
-      <AddMovie onSave={handleAddMovie}/>
+      <AddMovie onSave={setMovie} onUpdateAdd={setAddedMovie} inputs={addedMovie} list={movie}/>
       </footer>
     </div>
   );
