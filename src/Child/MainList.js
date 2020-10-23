@@ -34,7 +34,6 @@ function MainList() {
         <MovieList list={movie.filter(el => (el.title.toUpperCase().includes(movieTitle.toUpperCase().trim())) && el.rating>=movieRating)} />  
       </main>
       <footer>
-      <AddMovie onSave={setMovie} onUpdateAdd={setAddedMovie} inputs={addedMovie} list={movie}/>
       </footer>
     </div>
   );
